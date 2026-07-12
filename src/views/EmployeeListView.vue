@@ -1,11 +1,11 @@
 <template>List</template>
 <script setup lang="ts">
-import { useEmployeeStore } from '@/stores/employeeStore';
-import { onMounted } from 'vue';
+import { useEmployeeStore } from '@/stores/employeeStore'
+import { onMounted } from 'vue'
 
-const employeeStore = useEmployeeStore();
+const employeeStore = useEmployeeStore()
 
 onMounted(() => {
-    employeeStore.getEmployees();
+  employeeStore.getEmployees()
 })
 </script>
