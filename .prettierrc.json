@@ -1,8 +1,7 @@
 {
   "$schema": "https://json.schemastore.org/prettierrc",
-  "semi": false,
+  "semi": true,
   "singleQuote": true,
-  "printWidth": 100,
-  "singleAttributePerLine": true,
-  "semicolons": true
+  "printWidth": 110,
+  "singleAttributePerLine": true
 }

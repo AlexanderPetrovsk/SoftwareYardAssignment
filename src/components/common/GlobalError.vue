@@ -10,18 +10,18 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed } from 'vue';
 
-import { useEmployeeStore } from '@/stores/employeeStore'
+import { useEmployeeStore } from '@/stores/employeeStore';
 
-const employeeStore = useEmployeeStore()
+const employeeStore = useEmployeeStore();
 
 const visible = computed({
   get: () => !!employeeStore.error,
   set: (value) => {
     if (!value) {
-      employeeStore.clearErrors()
+      employeeStore.clearErrors();
     }
   },
-})
+});
 </script>
