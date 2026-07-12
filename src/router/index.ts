@@ -1,4 +1,5 @@
 import EmployeeListView from '@/views/EmployeeListView.vue';
+import NotFoundView from '@/views/NotFoundView.vue';
 import { createRouter, createWebHistory } from 'vue-router';
 
 const router = createRouter({
@@ -23,6 +24,11 @@ const router = createRouter({
       path: '/detail/:code',
       name: 'detail',
       component: () => import('@/views/EmployeeDetailView.vue'),
+    },
+    {
+      path: '/404/:pathMatch(.*)*',
+      name: 'not-found',
+      component: NotFoundView,
     },
   ],
 });

@@ -1,5 +1,8 @@
 <template>
-  <v-container class="mt-12">
+  <v-container
+    class="mt-12"
+    :fluid="!$vuetify.display.xlAndUp"
+  >
     <EmployeeFilters
       :employees="employeeStore.employees"
       v-model:search="search"
@@ -17,9 +20,9 @@
       @create="handleCreate"
     />
   </v-container>
-  <v-btn  
+  <v-btn
     class="float-right mt-12 mr-6"
-    color="success"
+    color="primary"
     text="Create"
     @click="handleCreate"
   />
@@ -57,5 +60,5 @@ const handleDelete = (item: Employee) => {
 
 const handleCreate = () => {
   router.push({ name: 'create' });
-}
+};
 </script>

@@ -1,8 +1,11 @@
-export const employeeTableHeaders = [
+import type { DataTableHeader } from 'vuetify';
+
+export const employeeTableHeaders: DataTableHeader[] = [
   {
     title: 'Full Name',
     key: 'fullName',
     sortable: true,
+    nowrap: true,
   },
   {
     title: 'Occupation',
@@ -13,21 +16,25 @@ export const employeeTableHeaders = [
     title: 'Department',
     key: 'department',
     sortable: true,
+    nowrap: true,
   },
   {
     title: 'Employment',
     key: 'dateOfEmployment',
     sortable: true,
+    nowrap: true,
   },
   {
     title: 'Termination',
     key: 'terminationDate',
     sortable: true,
+    nowrap: true,
   },
   {
     title: 'Actions',
     key: 'actions',
     sortable: false,
-    width: 160,
+    width: '160px',
+    fixed: 'end',
   },
 ];

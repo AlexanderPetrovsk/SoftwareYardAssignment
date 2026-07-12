@@ -39,5 +39,16 @@ export const useEmployeeStatus = () => {
     };
   };
 
-  return { getEmploymentStatus, getTerminationStatus };
+  const showEmploymentStatus = (date?: string | null) => {
+    if (!date) {
+      return true;
+    }
+
+    const terminationDate = new Date(date);
+    const now = new Date();
+
+    return terminationDate > now;
+  };
+
+  return { getEmploymentStatus, getTerminationStatus, showEmploymentStatus };
 };

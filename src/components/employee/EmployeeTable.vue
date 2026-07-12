@@ -1,12 +1,10 @@
 <template>
-  <v-card
-    elevation="2"
-  >
+  <v-card elevation="2">
     <v-data-table
       :items="filteredEmployees"
       :headers="employeeTableHeaders"
       fixed-header
-      height="70vh"
+      height="600px"
     >
       <template #item.dateOfEmployment="{ item }">
         <EmployeeStatus

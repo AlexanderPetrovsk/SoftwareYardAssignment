@@ -3,6 +3,7 @@
     <v-col
       cols="12"
       md="4"
+      class="border-lg rounded-t-lg"
     >
       <v-text-field
         :model-value="search"
@@ -10,12 +11,14 @@
         prepend-inner-icon="mdi-magnify"
         clearable
         hide-details
+        variant="solo"
         @update:model-value="emit('update:search', $event)"
       />
     </v-col>
     <v-col
       cols="12"
       md="4"
+      class="border-lg rounded-t-lg"
     >
       <v-select
         :model-value="department"
@@ -23,12 +26,14 @@
         :items="departmentOptions"
         clearable
         hide-details
+        variant="solo"
         @update:model-value="emit('update:department', $event)"
       />
     </v-col>
     <v-col
       cols="12"
       md="4"
+      class="border-lg rounded-t-lg"
     >
       <v-select
         :model-value="occupation"
@@ -36,6 +41,7 @@
         :items="occupationOptions"
         clearable
         hide-details
+        variant="solo"
         @update:model-value="emit('update:occupation', $event)"
       />
     </v-col>

@@ -11,7 +11,7 @@
 import { computed } from 'vue';
 import { EmployeeTerminationStatus } from '@/types/employee';
 import { useEmployeeStatus } from '@/composables/useEmployeeStatus';
-const { getEmploymentStatus, getTerminationStatus } = useEmployeeStatus();
+const { getEmploymentStatus, getTerminationStatus, showEmploymentStatus } = useEmployeeStatus();
 
 const props = defineProps<{
   type: 'employment' | 'termination';
@@ -27,11 +27,7 @@ const status = computed(() => {
     return terminationStatus;
   }
 
-  if (
-    props.type == 'employment' &&
-    employmentStatus &&
-    (!terminationStatus || terminationStatus.status === EmployeeTerminationStatus.TO_BE_TERMINATED)
-  ) {
+  if (props.type == 'employment' && employmentStatus && showEmploymentStatus(props.terminationDate)) {
     return employmentStatus;
   }
 
