@@ -1,6 +1,7 @@
 <template>
-  <h1>Initialization</h1>
+  <RouterView />
 </template>
 
-<script setup lang="ts"></script>
-<style scoped></style>
+<script setup lang="ts">
+import { RouterView } from 'vue-router'
+</script>
