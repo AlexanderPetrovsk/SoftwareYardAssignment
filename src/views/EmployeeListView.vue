@@ -28,7 +28,7 @@
   />
 </template>
 <script setup lang="ts">
-import { onMounted, ref } from 'vue';
+import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 import type { Employee } from '@/types/employee';
 import { useEmployeeStore } from '@/stores/employeeStore';
@@ -41,10 +41,6 @@ const employeeStore = useEmployeeStore();
 const search = ref('');
 const department = ref(null);
 const occupation = ref(null);
-
-onMounted(() => {
-  employeeStore.getEmployees();
-});
 
 const handleView = (item: Employee) => {
   router.push({ name: 'detail', params: { code: item.code } });

@@ -11,7 +11,17 @@
 </template>
 
 <script setup lang="ts">
+import { onMounted } from 'vue';
 import { RouterView } from 'vue-router';
-import GlobalError from './components/common/GlobalError.vue';
 import AppHeader from './components/common/AppHeader.vue';
+import { useEmployeeStore } from '@/stores/employeeStore';
+import GlobalError from './components/common/GlobalError.vue';
+
+const employeeStore = useEmployeeStore();
+
+onMounted(async () => {
+  if (!employeeStore.employees.length) {
+    await employeeStore.getEmployees();
+  }
+});
 </script>

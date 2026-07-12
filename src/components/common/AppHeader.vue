@@ -4,6 +4,12 @@
     color="surface"
     density="comfortable"
   >
+    <v-icon
+      size="32"
+      color="primary"
+      icon="mdi-office-building"
+      class="ml-3"
+    />
     <v-toolbar-title class="font-weight-bold text-primary"> Purple Cross HR </v-toolbar-title>
 
     <v-spacer />

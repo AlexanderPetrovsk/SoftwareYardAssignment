@@ -30,7 +30,6 @@
               <v-chip
                 v-if="employee && showEmploymentStatus(employee.terminationDate)"
                 :color="getEmploymentStatus(employee.dateOfEmployment).color"
-                variant="tonal"
               >
                 {{ getEmploymentStatus(employee.dateOfEmployment).text }}
               </v-chip>
@@ -38,7 +37,6 @@
               <v-chip
                 v-if="employee.terminationDate"
                 :color="getTerminationStatus(employee.terminationDate).color"
-                variant="tonal"
               >
                 {{ getTerminationStatus(employee.terminationDate).text }}
               </v-chip>
@@ -92,7 +90,7 @@
 
 <script setup lang="ts">
 import { useDisplay } from 'vuetify';
-import { computed, onMounted, watch } from 'vue';
+import { computed, watch } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 
 import { useEmployeeStore } from '@/stores/employeeStore';
@@ -106,12 +104,6 @@ const router = useRouter();
 const employeeStore = useEmployeeStore();
 
 const { getEmploymentStatus, getTerminationStatus, showEmploymentStatus } = useEmployeeStatus();
-
-onMounted(async () => {
-  if (!employeeStore.employees.length) {
-    await employeeStore.getEmployees();
-  }
-});
 
 const employee = computed(() => employeeStore.getEmployeeByCode(route.params.code as string));
 

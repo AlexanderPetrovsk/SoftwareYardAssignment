@@ -9,7 +9,6 @@
 
 <script setup lang="ts">
 import { computed } from 'vue';
-import { EmployeeTerminationStatus } from '@/types/employee';
 import { useEmployeeStatus } from '@/composables/useEmployeeStatus';
 const { getEmploymentStatus, getTerminationStatus, showEmploymentStatus } = useEmployeeStatus();
 
