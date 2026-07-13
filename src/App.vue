@@ -2,8 +2,8 @@
   <v-app>
     <AppHeader />
 
-    <GlobalError />
-
+    <ErrorNotification />
+    <SuccessNotification />
     <v-main>
       <RouterView />
     </v-main>
@@ -15,7 +15,8 @@ import { onMounted } from 'vue';
 import { RouterView } from 'vue-router';
 import AppHeader from './components/common/AppHeader.vue';
 import { useEmployeeStore } from '@/stores/employeeStore';
-import GlobalError from './components/common/GlobalError.vue';
+import ErrorNotification from './components/common/ErrorNotification.vue';
+import SuccessNotification from './components/common/SuccessNotification.vue';
 
 const employeeStore = useEmployeeStore();
 

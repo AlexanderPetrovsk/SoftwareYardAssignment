@@ -1,9 +1,10 @@
 <template>
   <v-snackbar
-    v-model="visible"
+    v-model="showNotification"
     color="error"
     timeout="3000"
     location="top end"
+    @update:modelValue="employeeStore.clearErrors()"
   >
     {{ employeeStore.error }}
   </v-snackbar>
@@ -16,12 +17,7 @@ import { useEmployeeStore } from '@/stores/employeeStore';
 
 const employeeStore = useEmployeeStore();
 
-const visible = computed({
-  get: () => !!employeeStore.error,
-  set: (value) => {
-    if (!value) {
-      employeeStore.clearErrors();
-    }
-  },
+const showNotification = computed(() => {
+  return employeeStore.error !== null;
 });
 </script>
