@@ -1,5 +1,5 @@
-import { defineStore } from 'pinia';
 import { ref } from 'vue';
+import { defineStore } from 'pinia';
 
 export const useNotificationStore = defineStore('notifications', () => {
   const activeNotification = ref<string | null>(null);

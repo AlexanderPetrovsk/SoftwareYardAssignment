@@ -5,6 +5,7 @@
       :headers="employeeTableHeaders"
       fixed-header
       height="600px"
+      striped="even"
     >
       <template #item.dateOfEmployment="{ item }">
         <EmployeeStatus

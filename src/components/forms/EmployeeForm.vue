@@ -83,13 +83,14 @@
 
       <v-card-actions class="justify-end pa-4">
         <v-btn
-          variant="text"
+          variant="outlined"
           @click="router.back()"
         >
           Cancel
         </v-btn>
 
         <v-btn
+          variant="outlined"
           color="primary"
           @click="submit"
         >

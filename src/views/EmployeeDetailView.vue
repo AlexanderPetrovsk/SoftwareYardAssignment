@@ -65,7 +65,7 @@
 
             <v-divider />
 
-            <v-list density="comfortable">
+            <v-list>
               <v-list-item
                 v-for="item in getEmployeeDetailItems(employee)"
                 :title="item.title"
@@ -90,7 +90,7 @@
 
 <script setup lang="ts">
 import { useDisplay } from 'vuetify';
-import { computed, watch } from 'vue';
+import { computed } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 
 import { useEmployeeStore } from '@/stores/employeeStore';
@@ -106,8 +106,6 @@ const employeeStore = useEmployeeStore();
 const { getEmploymentStatus, getTerminationStatus, showEmploymentStatus } = useEmployeeStatus();
 
 const employee = computed(() => employeeStore.getEmployeeByCode(route.params.code as string));
-
-watch(employee, (value) => !value && router.push({ name: 'not-found' }), { immediate: true });
 
 const initials = computed(() => {
   if (!employee.value) return '';

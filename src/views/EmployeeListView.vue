@@ -19,18 +19,18 @@
       @delete="openDeleteModal"
       @create="handleCreate"
     />
+    <v-btn
+      class="float-right mt-12"
+      color="primary"
+      text="Create"
+      @click="handleCreate"
+    />
+    <DeleteEmployeeModal
+      v-model="isDialogOpen"
+      :code="deletedEmployeeCode"
+      @confirm="deleteEmployeeConfirmation"
+    />
   </v-container>
-  <v-btn
-    class="float-right mt-12 mr-6"
-    color="primary"
-    text="Create"
-    @click="handleCreate"
-  />
-  <DeleteEmployeeModal
-    v-model="isDialogOpen"
-    :code="deletedEmployeeCode"
-    @confirm="deleteEmployeeConfirmation"
-  />
 </template>
 <script setup lang="ts">
 import { ref } from 'vue';

@@ -11,8 +11,8 @@
 </template>
 
 <script setup lang="ts">
-import { useNotificationStore } from '@/stores/notificationStore';
 import { computed } from 'vue';
+import { useNotificationStore } from '@/stores/notificationStore';
 
 const notificationStore = useNotificationStore();
 

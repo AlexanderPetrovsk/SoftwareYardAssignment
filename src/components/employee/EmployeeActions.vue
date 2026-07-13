@@ -1,16 +1,15 @@
 <template>
   <div class="d-flex ga-2">
     <v-btn
-      icon="mdi-eye"
+      prepend-icon="mdi-eye"
       size="small"
       variant="text"
       color="primary"
       @click="emit('view')"
       >View</v-btn
     >
-
     <v-btn
-      icon="mdi-pencil"
+      prepend-icon="mdi-pencil"
       size="small"
       variant="text"
       color="warning"
@@ -19,7 +18,7 @@
     >
 
     <v-btn
-      icon="mdi-delete"
+      prepend-icon="mdi-delete"
       size="small"
       variant="text"
       color="error"

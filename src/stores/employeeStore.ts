@@ -1,7 +1,7 @@
-import employeeService from '@/services/employeeService';
-import type { Employee } from '@/types/employee';
-import { defineStore } from 'pinia';
 import { ref } from 'vue';
+import { defineStore } from 'pinia';
+import type { Employee } from '@/types/employee';
+import employeeService from '@/services/employeeService';
 
 export const useEmployeeStore = defineStore('employees', () => {
   const employees = ref<Employee[]>([]);

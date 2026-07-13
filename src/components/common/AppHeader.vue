@@ -1,7 +1,6 @@
 <template>
   <v-app-bar
     elevation="2"
-    color="surface"
     density="comfortable"
   >
     <v-icon
@@ -15,7 +14,6 @@
     <v-spacer />
 
     <v-btn
-      variant="text"
       prepend-icon="mdi-account-group"
       @click="router.push({ name: 'list' })"
     >
@@ -25,5 +23,6 @@
 </template>
 <script setup lang="ts">
 import { useRouter } from 'vue-router';
+
 const router = useRouter();
 </script>

@@ -4,6 +4,7 @@
 
     <ErrorNotification />
     <SuccessNotification />
+
     <v-main>
       <RouterView />
     </v-main>
