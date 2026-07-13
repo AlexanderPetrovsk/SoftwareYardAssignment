@@ -9,7 +9,7 @@
       icon="mdi-office-building"
       class="ml-3"
     />
-    <v-toolbar-title class="font-weight-bold text-light"> Purple Cross HR </v-toolbar-title>
+    <v-toolbar-title class="font-weight-bold text-primary ml-1"> Purple Cross HR </v-toolbar-title>
 
     <v-spacer />
 

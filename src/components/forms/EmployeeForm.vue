@@ -84,6 +84,7 @@
       <v-card-actions class="justify-end pa-4">
         <v-btn
           variant="outlined"
+          data-test="cancel"
           @click="router.back()"
         >
           Cancel
@@ -92,6 +93,7 @@
         <v-btn
           variant="outlined"
           color="primary"
+          data-test="save"
           @click="submit"
         >
           Save

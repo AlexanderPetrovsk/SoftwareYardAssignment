@@ -10,10 +10,12 @@
         <v-spacer></v-spacer>
         <v-btn
           text="Yes"
+          variant="outlined"
           @click="handleDelete"
         ></v-btn>
         <v-btn
           text="Cancel"
+          variant="outlined"
           @click="isOpen = false"
         ></v-btn>
       </v-card-actions>

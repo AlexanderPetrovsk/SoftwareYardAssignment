@@ -19,9 +19,9 @@ export const useEmployeeImportExport = () => {
 
     link.href = url;
     link.download = 'employees.json';
-    
+
     link.click();
-    
+
     link.remove();
     URL.revokeObjectURL(url);
   };
