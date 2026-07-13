@@ -39,8 +39,16 @@ export const useValidation = () => {
       importedEmployees.some((imported) => imported.code === employee.code),
     );
 
+    const hasDuplicateCodes = importedEmployees.some(
+      (a, index) => importedEmployees.findIndex((b) => a.code === b.code) !== index,
+    );
+
     if (hasMatch) {
       throw Error('Employee with this code already exists');
+    }
+
+    if (hasDuplicateCodes) {
+      throw Error('Imported Employees have duplicate code values');
     }
 
     return true;

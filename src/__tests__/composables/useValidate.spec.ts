@@ -184,6 +184,21 @@ describe('useValidation', () => {
       ).toThrow('Employee with this code already exists');
     });
 
+    it('throws error when imported employees have duplicate code values', () => {
+      const { validateJSONImport } = useValidation();
+
+      expect(() =>
+        validateJSONImport([
+          {
+            code: 'EMP001',
+          } as Employee,
+          {
+            code: 'EMP001',
+          } as Employee,
+        ]),
+      ).toThrow('Imported Employees have duplicate code values');
+    });
+
     it('allows importing multiple unique employees', () => {
       store.employees = [
         {
