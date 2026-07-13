@@ -58,9 +58,8 @@
             cols="12"
             md="6"
           >
-            <v-text-field
-              v-model="dateOfEmployment.value.value"
-              type="date"
+            <v-date-input
+              v-model="employmentDateModel"
               label="Employment Date"
               :error-messages="dateOfEmployment.errorMessage.value"
             />
@@ -70,9 +69,8 @@
             cols="12"
             md="6"
           >
-            <v-text-field
-              v-model="terminationDate.value.value"
-              type="date"
+            <v-date-input
+              v-model="terminationDateModel"
               label="Termination Date"
               :error-messages="terminationDate.errorMessage.value"
             />
@@ -104,7 +102,7 @@
 </template>
 
 <script setup lang="ts">
-import { watch } from 'vue';
+import { computed, watch } from 'vue';
 import { useRouter } from 'vue-router';
 import { useForm, useField } from 'vee-validate';
 
@@ -133,6 +131,24 @@ const occupation = useField<string>('occupation');
 const department = useField<string>('department');
 const dateOfEmployment = useField<string>('dateOfEmployment');
 const terminationDate = useField<string | null>('terminationDate') || null;
+
+const employmentDateModel = computed<Date | null>({
+  get() {
+    return dateOfEmployment.value.value ? new Date(dateOfEmployment.value.value) : null;
+  },
+  set(value) {
+    dateOfEmployment.value.value = value ? value.toLocaleString() : '';
+  },
+});
+
+const terminationDateModel = computed<Date | null>({
+  get() {
+    return terminationDate.value.value ? new Date(terminationDate.value.value) : null;
+  },
+  set(value) {
+    terminationDate.value.value = value ? value.toLocaleString() : '';
+  },
+});
 
 watch(
   () => props.employee,

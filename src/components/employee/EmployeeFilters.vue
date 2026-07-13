@@ -13,6 +13,7 @@
         clearable
         hide-details
         variant="solo"
+        @click:clear="search = ''"
         @update:model-value="emit('update:search', $event)"
       />
     </v-col>
