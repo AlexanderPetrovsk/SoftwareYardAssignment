@@ -16,9 +16,15 @@ const vuetify = createVuetify({
   directives,
   theme: {
     themes: {
-      dark: {
+      light: {
         colors: {
           primary: colors.blue.darken3,
+        },
+      },
+      dark: {
+        colors: {
+          white: '#fff',
+          dark: colors.grey.darken4,
         },
       },
     },

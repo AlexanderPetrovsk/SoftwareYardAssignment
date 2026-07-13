@@ -7,6 +7,7 @@
     >
       <v-text-field
         :model-value="search"
+        :density="xs ? 'compact' : null"
         label="Search employees"
         prepend-inner-icon="mdi-magnify"
         clearable
@@ -22,11 +23,13 @@
     >
       <v-select
         :model-value="department"
-        label="Department"
         :items="departmentOptions"
+        :density="xs ? 'compact' : null"
         clearable
+        single-line
         hide-details
         variant="solo"
+        label="Department"
         @update:model-value="emit('update:department', $event)"
       />
     </v-col>
@@ -37,13 +40,16 @@
     >
       <v-select
         :model-value="occupation"
-        label="Occupation"
         :items="occupationOptions"
+        :density="xs ? 'compact' : null"
         clearable
+        single-line
         hide-details
         variant="solo"
+        label="Occupation"
         @update:model-value="emit('update:occupation', $event)"
-      />
+      >
+      </v-select>
     </v-col>
   </v-row>
 </template>
@@ -51,12 +57,15 @@
 <script setup lang="ts">
 import type { Employee } from '@/types/employee';
 import { computed } from 'vue';
+import { useDisplay } from 'vuetify';
 
 const emit = defineEmits(['update:search', 'update:department', 'update:occupation']);
 
 const props = defineProps<{
   employees: Employee[];
 }>();
+
+const { xs } = useDisplay();
 
 const search = defineModel('search', { type: String, default: '' });
 const department = defineModel('department', { type: String, default: null });

@@ -5,7 +5,7 @@
       :headers="employeeTableHeaders"
       fixed-header
       height="600px"
-      striped="even"
+      :sort-by="[{ key: 'code', order: 'desc' }]"
     >
       <template #item.dateOfEmployment="{ item }">
         <EmployeeStatus

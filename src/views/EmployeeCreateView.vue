@@ -1,7 +1,6 @@
 <template>
   <EmployeeForm
     :employee="employee"
-    action="create"
     @save="save"
   />
 </template>

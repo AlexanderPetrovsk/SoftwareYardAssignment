@@ -2,7 +2,6 @@
   <EmployeeForm
     v-if="employee"
     :employee="employee"
-    action="edit"
     @save="save"
   />
 </template>

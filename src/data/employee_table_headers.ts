@@ -34,7 +34,7 @@ export const employeeTableHeaders: DataTableHeader[] = [
     title: 'Actions',
     key: 'actions',
     sortable: false,
-    width: '160px',
+    width: '130px',
     fixed: 'end',
   },
 ];

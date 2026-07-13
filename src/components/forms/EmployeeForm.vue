@@ -111,7 +111,6 @@ import { useValidation } from '@/composables/useValidation';
 
 const props = defineProps<{
   employee: Employee;
-  action: 'edit' | 'create';
 }>();
 
 const emit = defineEmits<{
@@ -120,10 +119,10 @@ const emit = defineEmits<{
 
 const router = useRouter();
 
-const { employeeSchema } = useValidation(props.action);
+const { employeeSchema } = useValidation();
 
 const { handleSubmit, resetForm } = useForm({
-  validationSchema: employeeSchema,
+  validationSchema: employeeSchema(props.employee.code),
 });
 
 const code = useField<string>('code');

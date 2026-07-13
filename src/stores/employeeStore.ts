@@ -11,6 +11,10 @@ export const useEmployeeStore = defineStore('employees', () => {
     error.value = null;
   };
 
+  const setError = (message: string) => {
+    error.value = message;
+  };
+
   const getEmployees = async () => {
     try {
       employees.value = await employeeService.getEmployees();
@@ -63,14 +67,25 @@ export const useEmployeeStore = defineStore('employees', () => {
     employees.value.splice(index, 1);
   };
 
+  const importEmployees = (importedEmployees: Employee[], replace: boolean) => {
+    if (replace) {
+      employees.value = importedEmployees;
+      return;
+    }
+
+    employees.value.unshift(...importedEmployees);
+  };
+
   return {
     employees,
     error,
     clearErrors,
+    setError,
     getEmployees,
     getEmployeeByCode,
     createEmployee,
     updateEmployee,
     deleteEmployee,
+    importEmployees,
   };
 });

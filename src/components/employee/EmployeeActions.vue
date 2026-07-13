@@ -6,7 +6,7 @@
       variant="text"
       color="primary"
       @click="emit('view')"
-      >View</v-btn
+      >{{ !xs ? 'View' : '' }}</v-btn
     >
     <v-btn
       prepend-icon="mdi-pencil"
@@ -14,7 +14,7 @@
       variant="text"
       color="warning"
       @click="emit('edit')"
-      >Edit</v-btn
+      >{{ !xs ? 'Edit' : '' }}</v-btn
     >
 
     <v-btn
@@ -23,11 +23,15 @@
       variant="text"
       color="error"
       @click="emit('delete')"
-      >Delete</v-btn
+      >{{ !xs ? 'Delete' : '' }}</v-btn
     >
   </div>
 </template>
 
 <script setup lang="ts">
+import { useDisplay } from 'vuetify';
+
 const emit = defineEmits(['view', 'edit', 'delete']);
+
+const { xs } = useDisplay();
 </script>
