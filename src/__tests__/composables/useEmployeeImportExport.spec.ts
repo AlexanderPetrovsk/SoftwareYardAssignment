@@ -94,13 +94,13 @@ describe('useEmployeeImportExport', () => {
 
       const { importEmployees } = useEmployeeImportExport();
 
-      importEmployees(file, false);
+      importEmployees(file, true);
 
       fileReaderInstance.onload({
         target: {
           result: JSON.stringify([
             {
-              code: 'EMP001',
+              code: 'EMP002',
             },
           ]),
         },
@@ -109,10 +109,10 @@ describe('useEmployeeImportExport', () => {
       expect(importSpy).toHaveBeenCalledWith(
         [
           {
-            code: 'EMP001',
+            code: 'EMP002',
           },
         ],
-        false,
+        true,
       );
     });
 
@@ -125,7 +125,7 @@ describe('useEmployeeImportExport', () => {
 
       const { importEmployees } = useEmployeeImportExport();
 
-      importEmployees(file, true);
+      importEmployees(file, false);
 
       fileReaderInstance.onload({
         target: {

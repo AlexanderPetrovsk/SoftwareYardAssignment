@@ -43,7 +43,7 @@ export const useEmployeeImportExport = () => {
           parsedData = JSON.parse(event.target.result);
 
           if (parsedData) {
-            replace && validateJSONImport(parsedData);
+            !replace && validateJSONImport(parsedData);
             employeeStore.importEmployees(parsedData, replace);
           }
         }
