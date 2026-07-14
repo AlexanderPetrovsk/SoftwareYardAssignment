@@ -159,6 +159,7 @@ describe('useValidation', () => {
 
       const result = validateJSONImport([
         {
+          ...validEmployee,
           code: 'EMP999',
         } as Employee,
       ]);
@@ -166,9 +167,23 @@ describe('useValidation', () => {
       expect(result).toBe(true);
     });
 
+    it('throws error when imported employee is invalid', () => {
+      const { validateJSONImport } = useValidation();
+
+      expect(() =>
+        validateJSONImport([
+          {
+            ...validEmployee,
+            code: 123,
+          } as Employee,
+        ]),
+      ).toThrow('code must be a `string` type, but the final value was: `123`.');
+    });
+
     it('throws error when imported employee already exists', () => {
       store.employees = [
         {
+          ...validEmployee,
           code: 'EMP001',
         } as Employee,
       ];
@@ -178,10 +193,11 @@ describe('useValidation', () => {
       expect(() =>
         validateJSONImport([
           {
+            ...validEmployee,
             code: 'EMP001',
           } as Employee,
         ]),
-      ).toThrow('Employee with this code already exists');
+      ).toThrow('An employee with this code already exists');
     });
 
     it('throws error when imported employees have duplicate code values', () => {
@@ -190,10 +206,12 @@ describe('useValidation', () => {
       expect(() =>
         validateJSONImport([
           {
-            code: 'EMP001',
+            ...validEmployee,
+            code: 'EMP003',
           } as Employee,
           {
-            code: 'EMP001',
+            ...validEmployee,
+            code: 'EMP003',
           } as Employee,
         ]),
       ).toThrow('Imported Employees have duplicate code values');
@@ -202,6 +220,7 @@ describe('useValidation', () => {
     it('allows importing multiple unique employees', () => {
       store.employees = [
         {
+          ...validEmployee,
           code: 'EMP001',
         } as Employee,
       ];
@@ -211,9 +230,11 @@ describe('useValidation', () => {
       expect(
         validateJSONImport([
           {
+            ...validEmployee,
             code: 'EMP002',
           } as Employee,
           {
+            ...validEmployee,
             code: 'EMP003',
           } as Employee,
         ]),

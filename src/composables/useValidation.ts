@@ -9,6 +9,7 @@ export const useValidation = () => {
     yup.object({
       code: yup
         .string()
+        .strict()
         .required('Code is required')
         .min(6, 'Minimum 6 characters')
         .test('is-unique', 'An employee with this code already exists', (value) => {
@@ -32,8 +33,20 @@ export const useValidation = () => {
         .min(yup.ref('dateOfEmployment'), 'Termination date cannot be earlier than the employment date.'),
     });
 
-  const validateJSONImport = (importedEmployees: Employee[]) => {
+  const validateJSONImport = (importedEmployees: Employee[], replace: boolean) => {
     const employees = employeeStore.employees;
+
+    if (!Array.isArray(importedEmployees)) {
+      throw new Error('Invalid JSON format');
+    }
+
+    for (const employee of importedEmployees) {
+      employeeSchema(employee.code).validateSync(employee);
+    }
+
+    if (replace) {
+      return true;
+    }
 
     const hasMatch = employees.some((employee) =>
       importedEmployees.some((imported) => imported.code === employee.code),
@@ -44,7 +57,7 @@ export const useValidation = () => {
     );
 
     if (hasMatch) {
-      throw Error('Employee with this code already exists');
+      throw Error('An employee with this code already exists');
     }
 
     if (hasDuplicateCodes) {
@@ -53,6 +66,7 @@ export const useValidation = () => {
 
     return true;
   };
+
   return {
     employeeSchema,
     validateJSONImport,
